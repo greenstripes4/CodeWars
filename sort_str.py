@@ -1,3 +1,18 @@
+"""
+Write a function that takes an array of strings as an argument and returns a sorted array containing the same strings, ordered from shortest to longest.
+
+For example, if this array were passed as an argument:
+
+["Telescopes", "Glasses", "Eyes", "Monocles"]
+
+Your function would return the following array:
+
+["Eyes", "Glasses", "Monocles", "Telescopes"]
+
+All of the strings in the array passed to your function will be different lengths, so you will not have to decide how to order multiple strings of the same length.
+"""
+
+
 def sort_by_length(arr):
     for i in range(len(arr)-1):
         for x in range(len(arr)-i-1):
@@ -6,6 +21,7 @@ def sort_by_length(arr):
                 arr[x]=arr[x+1]
                 arr[x+1]=old_x
     return arr
+
 
 tests = [
     [["i", "to", "beg", "life"], ["beg", "life", "i", "to"]],

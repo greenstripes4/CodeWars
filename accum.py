@@ -1,6 +1,6 @@
 def accum(s):
-    string=""
-    index=0
+    string = ""
+    index = 0
     for c in s:
         if index > 0:
             string += '-'
@@ -9,5 +9,6 @@ def accum(s):
             string += c.lower() * index
         index += 1
     return string
+
 
 print(accum("RqaEzty"))
