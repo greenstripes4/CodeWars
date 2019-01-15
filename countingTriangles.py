@@ -25,3 +25,34 @@ stick lengths
 
 number of ways we can choose 3 sticks to form a triangle.
 """
+from itertools import combinations
+
+def possibilities(arr,n):
+    big_lst = []
+    if n == 1:
+        for i in arr:
+            big_lst.append([i])
+        return big_lst
+    elif n == len(arr):
+        return [arr]
+    for y in range(len(arr) - (n-1)):
+        a = [arr[y]]
+        childList = possibilities(arr[(y+1):], n-1)
+        for x in range(len(childList)):
+            childList[x] = a + childList[x]
+        big_lst = big_lst + childList
+    return big_lst
+
+
+def counting_triangles(V):
+    count = 0
+    for i in combinations(V,3):
+        i = sorted(i)
+        if i[0]+i[1] > i[2]:
+            count += 1
+    return count
+
+print(counting_triangles([2, 3, 7, 4]))
+
+
+
